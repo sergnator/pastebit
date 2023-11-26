@@ -13,11 +13,10 @@ def create():
 
 @app.route(rule='/NewPost', methods=['POST'])
 def new_post():
-    json_data = str(request.data)
-    json_data = json_data.split("'")[1]
+    json_data = str(request.data.decode(encoding='utf-8'))
     json_data = json.loads(json_data)
     id = generate_id()
-    with open(f'storage/{id}.txt', mode='w') as f:
+    with open(f'storage/{id}.txt', encoding='utf-8', mode='w') as f:
         f.write(json_data['text'])
     return f"storage/getpost?id={id}"
 
