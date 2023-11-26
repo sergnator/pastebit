@@ -1,0 +1,33 @@
+body {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    header {
+
+        background-color: black;
+        display: flex;
+
+    }
+    h1 {
+       color: white;
+       margin-left: 45%;
+    }
+    textarea {
+        margin-left: 30%;
+        margin-top: 15%;
+        border-radius: 10px;
+        resize: none;
+    }
+    button {
+        margin-left: 62.72%;
+        margin-top: 1%;
+        padding: 12px;
+        border-radius: 10px;
+    }
+    button:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    button:hover:after {
+        content: ' >';
+    }
+

@@ -1,23 +1,16 @@
-import sys
-
-from flask import Flask, request
+from flask import Flask, request, url_for, render_template
 
 app = Flask(__name__)
 
 
 @app.route('/create', methods=['GET'])
 def create():
-    with open('html//create.html', encoding='utf-8') as f:
-        data = f.readlines()
-        data = ''.join(data)
-    return data.format(request)
+    return render_template('create.html')
 
 
 @app.route('/', methods=['GET'])
 def sample():
-    with open('html//main.html', encoding='utf-8') as f:
-        data = f.read()
-    return data.format(request)
+    return render_template('main.html')
 
 
 if __name__ == '__main__':
