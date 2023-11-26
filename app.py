@@ -19,9 +19,7 @@ def new_post():
     id = generate_id()
     with open(f'storage/{id}.txt', mode='w') as f:
         f.write(json_data['text'])
-    url = generate_url(id)
-
-    return url
+    return f"storage/getpost?id={id}"
 
 
 @app.route("/storage/getpost")
@@ -44,10 +42,6 @@ def generate_id():
     if len(listdir) == 0:
         return '1'
     return str(max(listdir) + 1)
-
-
-def generate_url(id: str):
-    return f"storage/getpost?id={id}"
 
 
 if __name__ == '__main__':
