@@ -1,19 +1,26 @@
-const postData = async (url = '', data = {}) => {
-        // Формируем запрос
-        const response = await fetch(url, {
-            // Метод, если не указывать, будет использоваться GET
-            method: 'POST',
-        // Заголовок запроса
-            headers: {
-            'Content-Type': 'application/json'
-            },
-            // Данные
-            body: JSON.stringify(data)
-        });
-        return response.json();
-        }
-        const send = () => {
-            postData('/NewPost', { answer: 42 }).then((data) => {
-                console.log(data);
-            });
-        }
+const postData = async (url = '', data) => {
+    // Формируем запрос
+    const response = await fetch(url, {
+      method: 'POST',
+
+      headers: {
+        'Content-Type': 'text'
+      },
+      body: data
+    });
+    return response.text()
+    }
+
+    function send(){
+        json ={text: document.getElementById('text')}
+        postData('NewPost', JSON.stringify(json))
+
+    }
+
+    const button = document.getElementById('send')
+    window.addEventListener("DOMContentLoaded", (event) => {
+      const el = document.getElementById('send');
+      if (el) {
+        el.addEventListener('click', send, false);
+      }
+  });

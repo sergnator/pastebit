@@ -8,6 +8,10 @@ def create():
     return render_template('create.html')
 
 
+def new_post():
+    pass
+
+
 @app.route('/', methods=['GET'])
 def sample():
     return render_template('main.html')
