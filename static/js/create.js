@@ -12,8 +12,12 @@ const postData = async (url = '', data) => {
     }
 
     function send(){
-        json ={text: document.getElementById('text')}
-        postData('NewPost', JSON.stringify(json))
+        json ={text: document.getElementById('text').value}
+        postData('NewPost', JSON.stringify(json)).then((data) => {
+          location.href = data
+
+        }
+        )
 
     }
 
